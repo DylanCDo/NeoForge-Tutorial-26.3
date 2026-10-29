@@ -7,6 +7,7 @@ import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.data.PackOutput;
 import net.soybeans.tutorialmod.TutorialMod;
+import net.soybeans.tutorialmod.block.ModBlocks;
 import net.soybeans.tutorialmod.item.ModItems;
 
 public class ModModelProvider extends ModelProvider {
@@ -20,6 +21,9 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.BISMUTH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_BISMUTH.get(), ModelTemplates.FLAT_ITEM);
 
-
+        /*BLOCKS*/
+        blockModels.createTrivialCube(ModBlocks.BISMUTH_BLOCK.get());
+        blockModels.createTrivialCube(ModBlocks.BISMUTH_ORE.get());
+        blockModels.createTrivialCube(ModBlocks.DEEPSLATE_BISMUTH_ORE.get());
     }
 }

@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.soybeans.tutorialmod.TutorialMod;
+import net.soybeans.tutorialmod.block.ModBlocks;
 import net.soybeans.tutorialmod.item.ModItems;
 
 import java.awt.*;
@@ -34,11 +35,13 @@ public class ModCreativeModeTabs {
             );
 
     public static final Supplier<CreativeModeTab> BISMUTH_BLOCKS_TAB = CREATIVE_MOD_TABS.register("bismuth_blocks_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BISMUTH.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.BISMUTH_BLOCK.get()))
 
                     .title(Component.translatable("creativetab.tutorialmod.bismuth_blocks"))
                     .displayItems((itemDisplayParameters, output) -> {
-
+                        output.accept(ModBlocks.BISMUTH_BLOCK);
+                        output.accept(ModBlocks.BISMUTH_ORE);
+                        output.accept(ModBlocks.DEEPSLATE_BISMUTH_ORE);
                     })
                     .build()
 
