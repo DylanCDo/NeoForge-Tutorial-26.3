@@ -1,5 +1,7 @@
 package net.soybeans.tutorialmod.block;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
@@ -35,6 +37,11 @@ public class ModBlocks {
         registerBlockItems(name, toReturn);
         return toReturn;
     }
+
+    public static ResourceKey<Block> getRK(Block block) {
+        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
+    }
+
 
     private static <T extends Block> void registerBlockItems(String name, DeferredBlock<T> block) {
         ModItems.ITEMS.registerItem(name, properties -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
