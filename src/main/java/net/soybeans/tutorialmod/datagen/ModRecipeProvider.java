@@ -4,9 +4,14 @@ import net.minecraft.advancements.Advancement;
 import net.minecraft.core.registries.MultiRegistryBootstrap;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.CookingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
+import net.soybeans.tutorialmod.TutorialMod;
 import net.soybeans.tutorialmod.block.ModBlocks;
 import net.soybeans.tutorialmod.item.ModItems;
 
@@ -43,5 +48,19 @@ public class ModRecipeProvider extends RecipeProvider {
                 ModBlocks.BISMUTH_ORE,
                 ModBlocks.DEEPSLATE_BISMUTH_ORE);
 
+        oreSmelting(BISMUTH_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 200, "bismuth");
+        oreBlasting(BISMUTH_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.MISC, ModItems.BISMUTH.get(), 0.25f, 100, "bismuth");
+
+
+    }
+
+    @Override
+    protected <T extends AbstractCookingRecipe> void oreCooking(AbstractCookingRecipe.Factory<T> factory, List<ItemLike> smeltables,
+                                                                RecipeCategory craftingCategory, CookingBookCategory cookingCategory, ItemLike result,
+                                                                float experience, int cookingTime, String group, String fromDesc) {
+        for(ItemLike itemlike : smeltables) {
+            SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), craftingCategory, cookingCategory, result, experience, cookingTime, factory).group(group).unlockedBy(getHasName(itemlike), has(itemlike))
+                    .save(output, TutorialMod.MODID + ":" + getItemName(result) + fromDesc + "_" + getItemName(itemlike));
+        }
     }
 }

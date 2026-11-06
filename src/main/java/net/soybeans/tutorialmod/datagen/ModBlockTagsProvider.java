@@ -30,4 +30,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider{
                 .add(ModBlocks.getRK(ModBlocks.DEEPSLATE_BISMUTH_ORE.get()));
 
     }
+
+
 }

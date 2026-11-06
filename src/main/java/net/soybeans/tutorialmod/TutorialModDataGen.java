@@ -31,6 +31,8 @@ public class TutorialModDataGen {
                 .add(Registries.LOOT_TABLE, new LootTableProvider(Set.of(), List.of(
                         new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK))))
                 .add(ModRecipeProvider.create());
+
+
     }
 
     @SubscribeEvent
