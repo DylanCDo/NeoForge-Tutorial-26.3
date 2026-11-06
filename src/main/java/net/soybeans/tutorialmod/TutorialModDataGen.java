@@ -15,6 +15,7 @@ import net.neoforged.neoforge.data.event.GatherDataRegistryEntriesEvent;
 import net.soybeans.tutorialmod.datagen.ModBlockLootTableProvider;
 import net.soybeans.tutorialmod.datagen.ModBlockTagsProvider;
 import net.soybeans.tutorialmod.datagen.ModModelProvider;
+import net.soybeans.tutorialmod.datagen.ModRecipeProvider;
 
 import java.util.Collections;
 import java.util.List;
@@ -28,7 +29,8 @@ public class TutorialModDataGen {
     public static void gatherDataRegistryEntries(GatherDataRegistryEntriesEvent event) {
         event.gatherFor(TutorialMod.MODID, Identifier.DEFAULT_NAMESPACE)
                 .add(Registries.LOOT_TABLE, new LootTableProvider(Set.of(), List.of(
-                        new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK))));
+                        new LootTableProvider.SubProviderEntry(ModBlockLootTableProvider::new, LootContextParamSets.BLOCK))))
+                .add(ModRecipeProvider.create());
     }
 
     @SubscribeEvent
