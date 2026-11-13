@@ -29,6 +29,8 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.BISMUTH);
                         output.accept(ModItems.RAW_BISMUTH);
+
+                        output.accept(ModItems.METAL_DETECTOR);
                     })
                     .build()
 

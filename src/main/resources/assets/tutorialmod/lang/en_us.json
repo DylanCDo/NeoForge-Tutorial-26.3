@@ -3,6 +3,9 @@
   "item.tutorialmod.bismuth": "Bismuth",
   "item.tutorialmod.raw_bismuth": "Raw Bismuth",
 
+  "item.tutorialmod.metal_detector.no_valuables": "No Valuables Found!",
+  "item.tutorialmod.metal_detector": "Metal Detector",
+
   "block.tutorialmod.bismuth_block": "Block of Bismuth",
   "block.tutorialmod.bismuth_ore": "Bismuth Ore",
   "block.tutorialmod.deepslate_bismuth_ore": "Bismuth Deepslate Ore",
